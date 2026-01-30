@@ -1,0 +1,13 @@
+{
+  "welcomeFile": "/index.html",
+  "authenticationMethod": "route",
+  "routes": [
+
+    {
+      "source": "/sap/(.*)$",
+      "target": "/sap/$1",
+      "authenticationType": "xsuaa",
+      "destination": "cap-cds-api-client"
+    }
+  ]
+}
