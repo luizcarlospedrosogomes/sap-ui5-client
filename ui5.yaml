@@ -29,7 +29,7 @@ server:
          allowServices: true
          debug: true
          port: 5000
-         xsappJson: uimodule/webapp/xs-app.json
+         xsappJson: webapp/xs-app-local.json
          destinations: 
            - name: "cap-cds-api-client"
              url: "https://lcpgvps.duckdns.org"

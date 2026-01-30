@@ -10,6 +10,31 @@
 		"applicationVersion": {
 			"version": "${version}"
 		},
+		"crossNavigation": {
+			"inbounds": {
+				"intent1": {
+					"signature": {
+						"parameters": {},
+						"additionalParameters": "allowed"
+					},
+					"semanticObject": "manager",
+					"action": "display",
+					"title": "{{appTitle}}",					
+					"subTitle": "{{appSubTitle}}",
+					"description": "{{appDescription}}",
+					"icon": "sap-icon://notes"
+				}
+			}
+		},
+		"dataSources": {			
+			"SRV_LABSERV_SRV": {
+				"uri": "./sap/opu/odata/sprolims/SRV_LABSERV_SRV/",
+				"type": "OData",
+				"settings": {
+					"localUri": "localService/SRV_LABSERV_SRV/metadata.xml"
+				}
+			}
+		},
 		"sourceTemplate": {
 			"id": "generator-ui5-ts-app",
 			"version": "1.1.0"
@@ -57,6 +82,16 @@
 					"fallbackLocale": "en",
 					"async": true
 				}
+			}, 
+			"gateway": {
+				"type": "sap.ui.model.odata.v2.ODataModel",
+				"settings": {
+					"defaultOperationMode": "Server",
+					"defaultBindingMode": "OneWay",
+					"defaultCountMode": "Request"
+				},
+				"dataSource": "SRV_LABSERV_SRV",
+				"preload": true
 			}
 		},
 

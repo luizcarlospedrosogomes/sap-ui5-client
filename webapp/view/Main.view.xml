@@ -12,18 +12,53 @@
 		title="{i18n>appTitle}"
 		id="page">
 		<content>
-			<IllustratedMessage
-				title="{i18n>appTitle}"
-				illustrationType="sapIllus-SuccessHighFive"
-				enableVerticalResponsiveness="true"
-				description="{i18n>appDescription}">
-				<additionalContent>
-					<Button
-						id="helloButton"
-						text="{formatter: 'formatter.formatValue', path: 'i18n>btnText'}"
-						press=".sayHello" />
-				</additionalContent>
-			</IllustratedMessage>
+			<List 
+                id="list_master"
+            	items="{model: 'gateway'
+                        , path: '/SolicitationsSet'
+                        , sorter: [{ path: 'solicitation_id', descending: true }]
+                        }" 
+            	mode="SingleSelectMaster" 
+            	backgroundDesign="Solid" 
+            	showSeparators="All" 
+            	growing="true" 
+            	growingThreshold="20" 
+            	growingScrollToLoad="true"
+            	itemPress="onPressListItem"
+            >
+                <infoToolbar/>
+                <headerToolbar>
+                    <Toolbar >
+                        <content>
+                            <SearchField placeholder="{i18n>lblSearch}" liveChange="onLiveChangeSearch"/>
+                        </content>
+                    </Toolbar>
+                </headerToolbar>
+                <items>
+                    <ObjectListItem 
+                                  		
+                    	intro="{ path: 'gateway>solicitation_id'}" 
+                    	title="{gateway>description}" 
+                    	icon="sap-icon://write-new-document" 
+                    	
+                    	type="Active"
+                    >
+                        <attributes>
+                            <ObjectAttribute text="{i18n>lblstatusText}"/>
+                        </attributes>
+                        <firstStatus>
+                            <ObjectStatus 
+                                class="sapUiSmallMarginBottom" 
+                                text="{gateway>ano_safra}" 
+                                state="{parts: [{path: 'gateway>statusUserText'}], formatter: '.formatState'}" 
+                                inverted="true"
+						        active="true"
+                            />
+                        </firstStatus>                        
+			            
+                    </ObjectListItem>                  
+                </items>
+            </List>
 		</content>
 	</Page>
 
