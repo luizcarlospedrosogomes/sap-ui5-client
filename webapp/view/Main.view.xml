@@ -44,7 +44,7 @@
                     	type="Active"
                     >
                         <attributes>
-                            <ObjectAttribute text="{i18n>lblstatusText}"/>
+                            <ObjectAttribute text="{gateway>solicitation_description}"/>
                         </attributes>
                         <firstStatus>
                             <ObjectStatus 

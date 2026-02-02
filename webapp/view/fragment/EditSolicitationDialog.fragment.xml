@@ -1,0 +1,36 @@
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core">
+
+    <Dialog
+        id="editSolicitationDialog"
+        title="Editar Solicitação"
+        draggable="true"
+        resizable="true"
+        stretchOnPhone="true">
+
+        <content>
+            <VBox class="sapUiSmallMargin">
+                <Label text="Descrição da Solicitação"/>
+                <TextArea
+                    value="{modelEditSolicitation>/solicitation_description}"
+                    rows="5"
+                    width="100%"/>
+            </VBox>
+        </content>
+
+        <beginButton>
+            <Button
+                text="Salvar"
+                type="Emphasized"
+                press=".onSaveSolicitation"/>
+        </beginButton>
+
+        <endButton>
+            <Button
+                text="Cancelar"
+                press=".onCancelEdit"/>
+        </endButton>
+    </Dialog>
+
+</core:FragmentDefinition>
